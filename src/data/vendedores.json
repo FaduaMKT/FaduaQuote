@@ -1,0 +1,24 @@
+{
+  "vendedores": [
+    {
+      "id": "v001",
+      "provincia": "salta",
+      "nombre": "Nombre del Vendedor",
+      "mail": "vendedor@faduasa.com.ar",
+      "cel": "(0387) 000-0000",
+      "foto": "assets/vendedores/placeholder.png",
+      "activo": true,
+      "presupuestos": [
+        "argo_drive_70_30",
+        "cronos_drive_70_30",
+        "titano_freedom_60_40"
+      ]
+    }
+  ],
+  "contactoEmpresa": {
+    "direccion": "San Luis 680 - Salta Capital",
+    "mail": "recepcionplanes@faduasa.com.ar",
+    "cel": "(0387) 422-4216",
+    "logo": "assets/logos/fiat_fadua.png"
+  }
+}

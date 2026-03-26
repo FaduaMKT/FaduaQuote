@@ -1,0 +1,182 @@
+{
+  "textoLegal": "*El presente presupuesto tiene una validez de 5 (cinco) días y es estimativo y aproximado. El mismo no resulta vinculante pues se encuentra sujeto a las variaciones del valor móvil, tal cual lo expresado en párrafos anteriores. *El precio corresponde al equipamiento de serie del modelo presupuestado, no incluye opcionales no detallados específicamente. *Las promociones y/o bonificaciones pueden ser modificadas y/o suprimidas sin previo aviso. *El precio cotizado no incluye gastos de flete, patentamiento e inscripción de prenda. *Los plazos de entrega están sujetos a envíos del importador y/o fabricante. *Los precios corresponden a valores de listas a tiempo de la confección del presupuesto; sujeto a las modificaciones que surjan al tiempo de entrega. *Los importes de las cuotas están referidos en valores aproximados expresados en relación al valor móvil de la unidad a la fecha del presupuesto, incluidas las bonificaciones existentes en ese momento. *No incluye seguros. *Las imágenes son a modo ilustrativo. *Para acceder a la ADJUDICACIÓN PACTADA, deberá tener pagadas las cuotas en tiempo y forma. Tener fondos suficientes en la Tarjeta de Crédito o Cuenta Bancaria al momento del débito es de su responsabilidad. *Las 84 cuotas financian el 70% del valor de la unidad.",
+
+  "modelos": [
+    {
+      "id": "argo_drive_70_30",
+      "titulo": "ARGO",
+      "subtitulo": "Drive 1.3",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 4, 6 Y 12",
+      "valorUnidad": 29930000,
+      "cuotas": {
+        "c1": 600000,
+        "c2_12": 399341,
+        "c13_84": 301744,
+        "alicuota": 249417
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2, 4, 6 y 12 con el 30%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/argo.png"
+    },
+    {
+      "id": "cronos_drive_70_30",
+      "titulo": "CRONOS",
+      "subtitulo": "Drive 1.3 Mts - Pack Plus",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 4, 9 Y 12",
+      "valorUnidad": 37210000,
+      "cuotas": {
+        "c1": 696000,
+        "c2_12": 465208,
+        "c13_84": 375139,
+        "alicuota": 310083
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2 con el 20% - 10% restante se prorratea en 24 cuotas, 4, 9 y 12 con el 30%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/cronos.png"
+    },
+    {
+      "id": "cronos_drive_80_20",
+      "titulo": "CRONOS",
+      "subtitulo": "Drive 1.3 Mts - Pack Plus",
+      "plan": "PLAN 80/20",
+      "adjudicacion": "EN CUOTA 2, 6, 9 Y 12",
+      "valorUnidad": 37210000,
+      "cuotas": {
+        "c1": 796000,
+        "c2_12": 528597,
+        "c13_84": 424796,
+        "alicuota": 354381
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2, 6, 9 y 12 con el 20%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/cronos.png"
+    },
+    {
+      "id": "cronos_drive_90_10",
+      "titulo": "CRONOS",
+      "subtitulo": "Drive 1.3 Mts - Pack Plus",
+      "plan": "PLAN 90/10",
+      "adjudicacion": "EN CUOTA 2 Y 10",
+      "valorUnidad": 37210000,
+      "cuotas": {
+        "c1": 940000,
+        "c2_12": 595790,
+        "c13_84": 474454,
+        "alicuota": 398679
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2 y 10 con el 20%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/cronos.png"
+    },
+    {
+      "id": "fastback_turbo_70_30",
+      "titulo": "FASTBACK",
+      "subtitulo": "Turbo 270 At6",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 4, 6 Y 12",
+      "valorUnidad": 45540000,
+      "cuotas": {
+        "c1": 770000,
+        "c2_12": 544376,
+        "c13_84": 480390,
+        "alicuota": 379500
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2, 4, 6 y 12 con el 30%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/fastback.png"
+    },
+    {
+      "id": "fiorino_endurance_70_30",
+      "titulo": "FIORINO",
+      "subtitulo": "Endurance 1.3 Mt My24",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 4, 6 Y 12",
+      "valorUnidad": 29460000,
+      "cuotas": {
+        "c1": 580000,
+        "c2_12": 393070,
+        "c13_84": 297006,
+        "alicuota": 245500
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2, 4, 6 y 12 con el 30%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/fiorino.png"
+    },
+    {
+      "id": "mobi_trekking_80_20",
+      "titulo": "MOBI",
+      "subtitulo": "Trekking",
+      "plan": "PLAN 80/20",
+      "adjudicacion": "EN CUOTA 6 Y 12",
+      "valorUnidad": 27210000,
+      "cuotas": {
+        "c1": 480000,
+        "c2_12": 327313,
+        "c13_84": 310635,
+        "alicuota": 259143
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN DIRECTA en cuota 6 y 12 (30%).\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/mobi.png"
+    },
+    {
+      "id": "pulse_drive_70_30",
+      "titulo": "PULSE",
+      "subtitulo": "Drive 1.3 Mt",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 4, 6 Y 12",
+      "valorUnidad": 36860000,
+      "cuotas": {
+        "c1": 696000,
+        "c2_12": 491805,
+        "c13_84": 371610,
+        "alicuota": 307167
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2, 4, 6 y 12 con el 30%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/pulse.png"
+    },
+    {
+      "id": "strada_freedom_70_30",
+      "titulo": "STRADA",
+      "subtitulo": "Freedom CD 1.3 Mt",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 6 Y 12",
+      "valorUnidad": 37710000,
+      "cuotas": {
+        "c1": 740000,
+        "c2_12": 503146,
+        "c13_84": 380180,
+        "alicuota": 314250
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2 con el 35%, 6 y 12 con el 35%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/strada.png"
+    },
+    {
+      "id": "titano_freedom_60_40",
+      "titulo": "TITANO",
+      "subtitulo": "Freedom Mt",
+      "plan": "PLAN 60/40",
+      "adjudicacion": "EN CUOTA 2, 4, 6 Y 12",
+      "valorUnidad": 58540000,
+      "cuotas": {
+        "c1": 900000,
+        "c2_12": 606883,
+        "c13_84": 512058,
+        "alicuota": 418143
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2 con el 20% - 20% restante se prorratea hasta 24 cuotas. 4, 6 y 12 con el 40%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/titano.png"
+    },
+    {
+      "id": "toro_freedom_70_30",
+      "titulo": "TORO",
+      "subtitulo": "Freedom 1.3 At6",
+      "plan": "PLAN 70/30",
+      "adjudicacion": "EN CUOTA 2, 4, 6 Y 12",
+      "valorUnidad": 47490000,
+      "cuotas": {
+        "c1": 840000,
+        "c2_12": 598493,
+        "c13_84": 500960,
+        "alicuota": 395750
+      },
+      "textoPromo": "Aprovechá esta promoción que FIAT tiene para vos:\nFinanciado en 84 CUOTAS, 0% interés, precio directo de fábrica sólo con tu DNI.\nADJUDICACIÓN ESPECIAL en cuota 2 con el 30%, 4, 6 y 12 con el 30%.\nGastos de entrega: 10% del valor de la unidad (aproximadamente). Puede ser FINANCIADO CON TARJETA DE CRÉDITO.",
+      "imagen": "assets/autos/toro.png"
+    }
+  ]
+}
