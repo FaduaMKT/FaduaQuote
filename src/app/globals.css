@@ -10,7 +10,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif;
 }
 
 @layer utilities {
@@ -25,5 +25,9 @@ body {
     background: white;
     margin: 0;
     padding: 0;
+  }
+
+  * {
+    font-family: 'Montserrat', sans-serif !important;
   }
 }

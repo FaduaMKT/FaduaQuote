@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" media="all" />
+      </head>
       <body className={`${montserrat.variable} font-sans antialiased`}>
         {children}
       </body>

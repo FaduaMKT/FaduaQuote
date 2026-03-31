@@ -15,7 +15,7 @@ const config: Config = {
         fiatDark: "#2c2c2c",
       },
       fontFamily: {
-        sans: ["var(--font-montserrat)"],
+        sans: ["var(--font-montserrat)", "Montserrat", "sans-serif"],
       },
     },
   },

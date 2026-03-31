@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import modelosDataObj from "@/data/modelos.json";
 import vendedoresDataObj from "@/data/vendedores.json";
+import { supabase } from "@/lib/supabase";
 
 // Typed definitions
 export interface Modelo {
@@ -50,18 +53,97 @@ export default function Presupuesto({
   modeloId,
   vendedorId,
 }: PresupuestoProps) {
-  const modelosData = modelosDataObj as { textoLegal: string; modelos: Modelo[] };
-  const vendedoresData = vendedoresDataObj as { vendedores: Vendedor[]; contactoEmpresa: ContactoEmpresa };
+  const [modelosData, setModelosData] = useState<{ textoLegal: string; modelos: Modelo[] } | null>(null);
+  const [vendedoresData, setVendedoresData] = useState<{ vendedores: Vendedor[]; contactoEmpresa: ContactoEmpresa } | null>(null);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    
+    const loadData = async () => {
+      // Load Model
+      const { data: supM, error: errM } = await supabase.from("modelos").select("*").eq("id", modeloId).single();
+      let finalModel: Modelo | null = null;
+      let textoLegal = (modelosDataObj as { textoLegal: string; modelos: Modelo[] }).textoLegal;
+
+      if (!errM && supM) {
+        finalModel = {
+          ...supM,
+          valorUnidad: supM.valor_unidad,
+          textoPromo: supM.texto_promo,
+          textoLegal: supM.texto_legal,
+          cuotas: {
+            c1: supM.cuota_c1,
+            c2_12: supM.cuota_c2_12,
+            c13_84: supM.cuota_c13_84,
+            alicuota: supM.alicuota
+          }
+        };
+        textoLegal = supM.texto_legal;
+      } else {
+        // Fallback
+        const storedModelos = localStorage.getItem("fadua_modelos");
+        let loadedModelos = (modelosDataObj as { textoLegal: string; modelos: Modelo[] }).modelos;
+        if (storedModelos) {
+          try { loadedModelos = JSON.parse(storedModelos); } catch(e){}
+        }
+        finalModel = loadedModelos.find(m => m.id === modeloId) || null;
+      }
+
+      setModelosData({
+        textoLegal,
+        modelos: finalModel ? [finalModel] : []
+      });
+
+      // Load Vendedor
+      const { data: supV, error: errV } = await supabase.from("vendedores").select("*").eq("id", vendedorId).single();
+      let finalVendedor: Vendedor | null = null;
+      if (!errV && supV) {
+        finalVendedor = supV;
+      } else {
+        // Fallback
+        const storedVendedores = localStorage.getItem("fadua_vendedores");
+        let loadedVendedores = (vendedoresDataObj as { vendedores: Vendedor[]; contactoEmpresa: ContactoEmpresa }).vendedores;
+        if (storedVendedores) {
+           try { loadedVendedores = JSON.parse(storedVendedores); } catch(e){}
+        }
+        finalVendedor = loadedVendedores.find(v => v.id === vendedorId) || null;
+      }
+
+      setVendedoresData({
+        contactoEmpresa: (vendedoresDataObj as { vendedores: Vendedor[]; contactoEmpresa: ContactoEmpresa }).contactoEmpresa,
+        vendedores: finalVendedor ? [finalVendedor] : []
+      });
+    };
+
+    loadData();
+  }, [modeloId, vendedorId]);
+
+  if (!isClient || !modelosData || !vendedoresData) {
+    return <div className="p-10 font-bold max-[220mm]:p-[15px] font-sans text-center">Cargando cotización...</div>;
+  }
 
   const modelo = modelosData.modelos.find((m) => m.id === modeloId);
   const vendedor = vendedoresData.vendedores.find((v) => v.id === vendedorId);
   
   if (!modelo || !vendedor) {
-    return <div className="p-10 text-red-500 font-bold">Error: Modelo o Vendedor no encontrado.</div>;
+    return <div className="p-10 text-red-500 font-bold font-sans text-center">Error: Modelo o Vendedor no encontrado.</div>;
   }
 
   const { contactoEmpresa } = vendedoresData;
   const textoLegal = modelosData.textoLegal;
+
+  const getAbsoluteUrl = (path: string) => {
+    if (!path) return "";
+    if (path.startsWith("data:") || path.startsWith("http")) return path;
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return `${window.location.origin}/${cleanPath}`;
+  };
+
+  const createPlaceholderSVG = (text: string) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="100%" height="100%" fill="#eeeeee"/><text x="50%" y="50%" fill="#999999" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle">${text}</text></svg>`;
+    return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
+  };
 
   return (
     <div className="w-[210mm] min-h-[297mm] bg-white pt-[8mm] pb-[8mm] pl-[10mm] pr-[10mm] mx-auto relative shadow-[0_4px_12px_rgba(0,0,0,0.1)] print:w-full print:min-h-0 print:m-0 print:p-0 print:shadow-none print:break-after-avoid print:break-inside-avoid max-[220mm]:w-full max-[220mm]:p-[15px]">
@@ -88,7 +170,14 @@ export default function Presupuesto({
         <div className="flex-1 flex items-center gap-[12px] bg-[#f8f8f8] p-[10px] rounded-[16px] shadow-[0_2px_6px_rgba(0,0,0,0.05)] max-[220mm]:order-1">
           <div className="w-[80px] h-[80px] rounded-full overflow-hidden bg-[#ccc] shrink-0 border-2 border-white shadow-[0_2px_6px_rgba(0,0,0,0.1)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/${vendedor.foto}`} alt="Asesor" className="w-full h-full object-cover" />
+            <img 
+              src={getAbsoluteUrl(vendedor.foto)} 
+              alt="Asesor" 
+              className="w-full h-full object-cover" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = createPlaceholderSVG(vendedor.nombre);
+              }}
+            />
           </div>
           <div className="info">
             <p className="my-[3px] text-[12px] text-[#333]">
@@ -106,7 +195,14 @@ export default function Presupuesto({
         {/* Imagen del auto */}
         <div className="flex-1 max-w-[240px] h-auto rounded-[12px] overflow-hidden bg-white max-[220mm]:order-2 max-[220mm]:max-w-full relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/${modelo.imagen}`} alt="Vehículo" className="w-full h-auto block object-contain mix-blend-multiply" />
+          <img 
+            src={getAbsoluteUrl(modelo.imagen)} 
+            alt="Vehículo" 
+            className="w-full h-auto block object-contain mix-blend-multiply" 
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = createPlaceholderSVG(modelo.titulo);
+            }}
+          />
         </div>
       </div>
 
@@ -241,7 +337,14 @@ export default function Presupuesto({
         <div className="flex-none">
           {contactoEmpresa.logo ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={`/${contactoEmpresa.logo}`} alt="Logos" className="max-h-[60px] w-auto block max-[220mm]:mx-auto" />
+            <img 
+              src={getAbsoluteUrl(contactoEmpresa.logo)} 
+              alt="Logos" 
+              className="max-h-[60px] w-auto block max-[220mm]:mx-auto" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = createPlaceholderSVG("FIAT FADUA");
+              }}
+            />
           ) : (
             <div className="h-[60px] flex border justify-center items-center bg-[#eaeaea] w-[180px] max-[220mm]:mx-auto text-[10px]">
               [Logos Fadua / Fiat]
